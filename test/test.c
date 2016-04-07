@@ -44,7 +44,7 @@ PHP_INI_END()
 */
 /* }}} */
 
-PHP_FUNCTION(confirm_test_compiled)
+PHP_FUNCTION(test)
 {
 	zend_string *strg;
 	strg = strpprintf(0, "hello word");
