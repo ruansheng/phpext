@@ -61,6 +61,8 @@ ZEND_TSRMLS_CACHE_EXTERN();
 #endif	/* PHP_TEST_H */
 
 
+PHP_FUNCTION(test);
+
 /*
  * Local variables:
  * tab-width: 4
