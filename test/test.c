@@ -44,6 +44,13 @@ PHP_INI_END()
 */
 /* }}} */
 
+PHP_FUNCTION(confirm_test_compiled)
+{
+	zend_string *strg;
+	strg = strpprintf(0, "hello word");
+	RETURN_STR(strg);
+}
+
 /* Remove the following function when you have successfully modified config.m4
    so that your module can be compiled into PHP, it exists only for testing
    purposes. */
@@ -53,8 +60,16 @@ PHP_INI_END()
    Return a string to confirm that the module is compiled in */
 PHP_FUNCTION(confirm_test_compiled)
 {
+	char *arg = NULL;
+	size_t arg_len, len;
 	zend_string *strg;
-	strg = strpprintf(0, "hello word");
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s", &arg, &arg_len) == FAILURE) {
+		return;
+	}
+
+	strg = strpprintf(0, "Congratulations! You have successfully modified ext/%.78s/config.m4. Module %.78s is now compiled into PHP.", "test", arg);
+
 	RETURN_STR(strg);
 }
 /* }}} */
