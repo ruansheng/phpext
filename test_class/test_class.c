@@ -34,8 +34,12 @@ static int le_test_class;
 
 PHP_FUNCTION(test)
 {
-	php_printf("hello world\n");
-	return SUCCESS;
+	//php_printf("hello world\n");
+	//return SUCCESS;
+
+	zend_string *strg;
+	strg = strpprintf(0, "hello word");
+	RETURN_STR(strg);
 }
 
 
