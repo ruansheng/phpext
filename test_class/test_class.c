@@ -80,7 +80,7 @@ PHP_MINFO_FUNCTION(test_class)
 
 
 const zend_function_entry test_class_functions[] = {
-	PHP_FE(test, NULL);
+	PHP_FE(test, NULL)
 	PHP_FE_END	/* Must be the last line in test_class_functions[] */
 };
 
