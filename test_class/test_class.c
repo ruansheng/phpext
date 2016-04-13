@@ -31,17 +31,18 @@
 
 static int le_test_class;
 
-/*
-PHP_FUNCTION(test_class)
+PHP_FUNCTION(rs_echo)
 {
-	//php_printf("hello world\n");
-	//return SUCCESS;
-
+	char *arg = NULL;
+	size_t arg_len;
 	zend_string *strg;
-	strg = strpprintf(0, "hello word");
+	if(zend_parse_parameters(ZEND_NUM_ARGS(), "ss", &arg, &arg_len) == FAILURE) {
+		return ;
+	}
+
+	strg = strpprintf(0, "hello word %s!", arg);
 	RETURN_STR(strg);
 }
-*/
 
 
 
@@ -84,7 +85,7 @@ PHP_MINFO_FUNCTION(test_class)
 
 
 const zend_function_entry test_class_functions[] = {
-	//PHP_FE(test_class, NULL)
+	PHP_FE(rs_echo, NULL)
 	PHP_FE_END	/* Must be the last line in test_class_functions[] */
 };
 
