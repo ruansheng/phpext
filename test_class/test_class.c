@@ -31,7 +31,7 @@
 
 static int le_test_class;
 
-
+/*
 PHP_FUNCTION(test_class)
 {
 	//php_printf("hello world\n");
@@ -41,7 +41,7 @@ PHP_FUNCTION(test_class)
 	strg = strpprintf(0, "hello word");
 	RETURN_STR(strg);
 }
-
+*/
 
 
 
@@ -84,7 +84,7 @@ PHP_MINFO_FUNCTION(test_class)
 
 
 const zend_function_entry test_class_functions[] = {
-	PHP_FE(test_class, NULL)
+	//PHP_FE(test_class, NULL)
 	PHP_FE_END	/* Must be the last line in test_class_functions[] */
 };
 
