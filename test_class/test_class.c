@@ -41,6 +41,7 @@ PHP_FUNCTION(rs_echo)
 	}
 
 	strg = strpprintf(0, "hello word %s!", arg);
+	php_printf(strg);
 	RETURN_STR(strg);
 }
 
