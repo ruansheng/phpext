@@ -36,12 +36,13 @@ PHP_FUNCTION(rs_echo)
 	char *arg = NULL;
 	size_t arg_len;
 	zend_string *strg;
-	if(zend_parse_parameters(ZEND_NUM_ARGS(), "ss", &arg, &arg_len) == FAILURE) {
+	if(zend_parse_parameters(ZEND_NUM_ARGS(), "s", &arg, &arg_len) == FAILURE) {
 		return ;
 	}
+	//TSRMLS_CC
 
 	strg = strpprintf(0, "hello word %s!", arg);
-	php_printf(strg);
+
 	RETURN_STR(strg);
 }
 
